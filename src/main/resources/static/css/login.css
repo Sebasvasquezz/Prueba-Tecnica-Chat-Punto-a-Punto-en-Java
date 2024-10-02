@@ -1,0 +1,112 @@
+/* Reset de márgenes y padding para asegurar consistencia en todos los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fondo de la página con un azul suave */
+body {
+    background-color: #e0f7fa;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor de login */
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    margin-bottom: 20px;
+}
+
+/* Imagen del login */
+.login-image {
+    width: 100%;
+    border-radius: 10px;
+}
+/* Título del login */
+h2 {
+    color: #0277bd;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo de las etiquetas */
+label {
+    color: #01579b;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para los inputs */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #b3e5fc;
+    border-radius: 5px;
+    background-color: #e1f5fe;
+    font-size: 1rem;
+    color: #01579b;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #0288d1;
+    outline: none;
+}
+
+/* Botón de login */
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #0277bd;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #01579b;
+}
+
+/* Mensaje de error */
+#errorMessage {
+    color: #d32f2f;
+    margin-top: 1rem;
+}
+/* Estilo del botón de registro */
+#registerButton {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #03a9f4;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#registerButton:hover {
+    background-color: #0288d1;
+}

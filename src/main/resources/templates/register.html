@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/css/register.css"> 
+</head>
+<body>
+    <form th:action="@{/users/register}" method="post">
+        <div class="image-container"></div>
+            <img src="/images/chat-image.png" alt="Chat" class="login-image">
+        </div>
+        <h1>Register</h1>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+        <div></div>
+            <button type="button" id="backToLoginButton">Back to Login</button>
+        </div>
+        <div th:if="${message}" th:classappend="${messageType == 'success'} ? 'success-message' : 'error-message'">
+            <p th:text="${message}"></p>
+        </div>
+    </form>
+    <script type="text/javascript">
+        // Redirección al login al hacer clic en el botón
+        document.getElementById("backToLoginButton").onclick = function () {
+            window.location.href = "/login"; // Redirige a la página de login
+        };
+    </script>
+</body>
+</html>

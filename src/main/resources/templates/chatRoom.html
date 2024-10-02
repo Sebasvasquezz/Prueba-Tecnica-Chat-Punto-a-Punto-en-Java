@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="/css/chatRoom.css"> <!-- Enlace al archivo CSS -->
+    <script src="https://cdn.jsdelivr.net/sockjs/latest/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script> 
+</head>
+<body>
+    <div id="chat">
+        <h2>Chat with <span th:text="${recipient}"></span></h2>
+        <div id="messageArea"></div>
+
+        <!-- Contenedor de input y botón de enviar mensaje -->
+        <div id="messageInputContainer">
+            <input type="text" id="message" placeholder="Write a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <div id="backToUsersContainer"></div>
+            <button id="backToUsersButton" onclick="window.location.href='/users/all'">Back to Users List</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var stompClient = null;
+        const secretKey = "1234567890123456"; 
+        const sender = /*[[${sender}]]*/ '[[${sender}]]';  
+        const recipient = /*[[${recipient}]]*/ '[[${recipient}]]';
+
+        function connect() {
+            var socket = new SockJS('https://localhost:8443/chat-websocket'); 
+            stompClient = Stomp.over(socket);
+
+            stompClient.connect({}, function (frame) {
+                console.log('Connected: ' + frame);
+                stompClient.subscribe('/topic/public', function (messageOutput) {
+                    var messageBody = JSON.parse(messageOutput.body);
+                    if ((messageBody.sender === recipient && messageBody.recipient === sender) || (messageBody.sender === sender && messageBody.recipient === recipient)) {
+                        showMessage(decryptMessage(messageBody.content), messageBody.sender);
+                    }
+                });
+            });
+        }
+
+        function sendMessage() {
+            var messageContent = document.getElementById('message').value;
+            if (messageContent && stompClient) {
+                var encryptedMessage = encryptMessage(messageContent);
+
+                var chatMessage = {
+                    sender: sender, 
+                    recipient: recipient, 
+                    content: encryptedMessage, 
+                    type: 'CHAT'
+                };
+                stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+                document.getElementById('message').value = ''; 
+            }
+        }
+
+        function showMessage(messageContent, sender) {
+            var messageArea = document.getElementById('messageArea');
+            var messageElement = document.createElement('div');
+            messageElement.appendChild(document.createTextNode(sender + ": " + messageContent));
+            messageArea.appendChild(messageElement);
+        }
+
+        function encryptMessage(message) {
+            return CryptoJS.AES.encrypt(message, secretKey).toString();
+        }
+
+        function decryptMessage(encryptedMessage) {
+            var bytes = CryptoJS.AES.decrypt(encryptedMessage, secretKey);
+            return bytes.toString(CryptoJS.enc.Utf8);
+        }
+
+        connect(); 
+    </script>
+</body>
+</html>
