@@ -37,7 +37,7 @@
         }
 
         $('#loginForm').on('submit', function (event) {
-            event.preventDefault(); // Evita el envío tradicional del formulario
+            event.preventDefault(); 
 
             const username = $('#username').val();
             const password = $('#password').val();
@@ -48,10 +48,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify({username: username, password: password}),
                 success: function (response) {
-                    // Guardar el token JWT en una cookie
-                    setCookie('jwtToken', response, 1); // Cookie que expira en 1 día
-
-                    // Redirigir a la lista de usuarios
+                    setCookie('jwtToken', response, 1); 
                     window.location.href = '/users/all';
                 },
                 error: function () {

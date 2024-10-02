@@ -1,5 +1,8 @@
 package prueba.chat.model;
-
+/**
+ * ChatMessage represents a message exchanged in a chat. It contains the message content, 
+ * the sender, recipient, and the type of message (CHAT, JOIN, or LEAVE).
+ */
 public class ChatMessage {
 
     private String content;

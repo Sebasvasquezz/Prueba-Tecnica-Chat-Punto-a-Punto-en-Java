@@ -7,6 +7,10 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
+/**
+ * EncryptionService provides methods to encrypt and decrypt messages using the AES algorithm.
+ * It relies on a secret key defined in the application properties.
+ */
 @Service
 public class EncryptionService {
 
@@ -16,6 +20,13 @@ public class EncryptionService {
     @Value("${encryption.key}")
     private String SECRET_KEY;
 
+    /**
+     * Encrypts a message using AES encryption.
+     * 
+     * @param message The plain text message to be encrypted.
+     * @return The encrypted message encoded in Base64.
+     * @throws Exception If encryption fails or the key is invalid.
+     */
     public String encrypt(String message) throws Exception {
         if (SECRET_KEY == null || SECRET_KEY.length() != 16) {
             throw new IllegalArgumentException("Invalid encryption key");
@@ -28,6 +39,13 @@ public class EncryptionService {
         return Base64.getEncoder().encodeToString(encryptedMessage);
     }
 
+    /**
+     * Decrypts a previously encrypted message using AES decryption.
+     * 
+     * @param encryptedMessage The encrypted message in Base64 encoding.
+     * @return The original decrypted plain text message.
+     * @throws Exception If decryption fails or the key is invalid.
+     */
     public String decrypt(String encryptedMessage) throws Exception {
         if (SECRET_KEY == null || SECRET_KEY.length() != 16) {
             throw new IllegalArgumentException("Invalid encryption key");

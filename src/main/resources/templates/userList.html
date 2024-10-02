@@ -13,8 +13,6 @@
             <button class="chat-button" th:data-username="${user.username}">Iniciar Chat</button>
         </div>
     </div>
-
-    <!-- Botón de Logout -->
     <div class="logout-container">
         <button id="logoutButton">Logout</button>
     </div>
@@ -23,14 +21,11 @@
         document.querySelectorAll('.chat-button').forEach(button => {
             button.addEventListener('click', function() {
                 const username = this.getAttribute('data-username');
-                const token = getCookie('jwtToken'); // Obtener el token JWT desde la cookie
-
-                // Crear un enlace invisible para hacer la redirección con el token en el encabezado
+                const token = getCookie('jwtToken'); 
                 const xhr = new XMLHttpRequest();
                 xhr.open('GET', `/chat/start/${username}`, true);
                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
-                // Redirigir al hacer clic
                 xhr.onload = function() {
                     if (xhr.status === 200) {
                         window.location.href = `/chat/start/${username}`;
@@ -42,7 +37,6 @@
             });
         });
 
-        // Función para obtener el valor de una cookie por su nombre
         function getCookie(name) {
             let cookieArr = document.cookie.split(";");
             for (let i = 0; i < cookieArr.length; i++) {
@@ -54,15 +48,13 @@
             return null;
         }
 
-        // Función para borrar la cookie
         function deleteCookie(name) {
             document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
 
-        // Función para el botón de Logout
         document.getElementById('logoutButton').addEventListener('click', function() {
-            deleteCookie('jwtToken'); // Eliminar la cookie jwtToken
-            window.location.href = '/login'; // Redirigir a la página de login
+            deleteCookie('jwtToken'); 
+            window.location.href = '/login'; 
         });
     </script>
 </body>

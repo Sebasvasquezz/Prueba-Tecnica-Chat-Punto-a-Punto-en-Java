@@ -1,4 +1,3 @@
-/* Reset de márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Fondo de la página */
+
 body {
     background-color: #e0f7fa;
     min-height: 100vh;
@@ -16,7 +15,6 @@ body {
     align-items: center;
 }
 
-/* Título de la página */
 h1 {
     color: #0277bd;
     margin-bottom: 20px;
@@ -24,7 +22,6 @@ h1 {
     font-size: 2rem;
 }
 
-/* Contenedor de la lista de usuarios */
 .user-list {
     background-color: #ffffff;
     padding: 20px;
@@ -34,7 +31,6 @@ h1 {
     width: 100%;
 }
 
-/* Elemento de la lista de usuarios */
 .user-item {
     display: flex;
     justify-content: space-between;
@@ -46,18 +42,15 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-/* Cambiar color al pasar el ratón por encima del elemento */
 .user-item:hover {
     background-color: #b3e5fc;
 }
 
-/* Estilo del nombre de usuario */
 .user-item span {
     font-size: 1.1rem;
     color: #01579b;
 }
 
-/* Botón de iniciar chat */
 button.chat-button {
     background-color: #0277bd;
     color: #ffffff;
@@ -69,20 +62,18 @@ button.chat-button {
     transition: background-color 0.3s ease;
 }
 
-/* Cambiar color del botón al pasar el ratón por encima */
 button.chat-button:hover {
     background-color: #01579b;
 }
-/* Contenedor del botón de Logout */
+
 .logout-container {
-    margin-top: 20px; /* Espacio superior para separar el botón */
-    text-align: center; /* Centrar el botón */
+    margin-top: 20px; 
+    text-align: center; 
 }
 
-/* Estilos para el botón de Logout */
 #logoutButton {
     padding: 10px 20px;
-    background-color: #f44336; /* Rojo claro para resaltar */
+    background-color: #f44336; 
     border: none;
     border-radius: 5px;
     color: #ffffff;
@@ -92,7 +83,6 @@ button.chat-button:hover {
     transition: background-color 0.3s ease;
 }
 
-/* Efecto hover para el botón de Logout */
 #logoutButton:hover {
-    background-color: #d32f2f; /* Rojo más oscuro al hacer hover */
+    background-color: #d32f2f; 
 }

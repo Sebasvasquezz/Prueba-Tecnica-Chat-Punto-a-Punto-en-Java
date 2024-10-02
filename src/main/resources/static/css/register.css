@@ -1,4 +1,3 @@
-/* Reset de márgenes y padding para asegurar consistencia en todos los navegadores */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Fondo de la página */
 body {
     background-color: #e0f7fa;
     height: 100vh;
@@ -16,43 +14,41 @@ body {
     padding: 5px;
 }
 
-/* Contenedor principal */
 form {
     background-color: #ffffff;
-    padding: 1.2rem; /* Reducido de 1.5rem a 1.2rem */
+    padding: 1.2rem; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 320px; /* Reducido de 350px a 320px */
+    max-width: 320px; 
     text-align: center;
 }
 
-/* Título de la página */
 h1 {
     color: #0277bd;
-    margin-bottom: 1rem; /* Reducido de 1.25rem a 1rem */
-    font-size: 1.2rem; /* Tamaño reducido */
+    margin-bottom: 1rem; 
+    font-size: 1.2rem; 
 }
 
-/* Estilos de las etiquetas */
+
 label {
     color: #01579b;
     font-weight: bold;
     display: block;
     text-align: left;
-    margin-bottom: 0.3rem; /* Reducido de 0.4rem a 0.3rem */
-    font-size: 0.9rem; /* Tamaño reducido */
+    margin-bottom: 0.3rem; 
+    font-size: 0.9rem; 
 }
 
-/* Estilo para los inputs */
+
 input[type="text"], input[type="password"] {
     width: 100%;
-    padding: 0.6rem; /* Reducido de 0.65rem a 0.6rem */
-    margin-bottom: 0.9rem; /* Reducido de 1rem a 0.9rem */
+    padding: 0.6rem; 
+    margin-bottom: 0.9rem; 
     border: 1px solid #b3e5fc;
     border-radius: 5px;
     background-color: #e1f5fe;
-    font-size: 0.9rem; /* Reducido de 0.95rem a 0.9rem */
+    font-size: 0.9rem; 
     color: #01579b;
     transition: border-color 0.3s ease;
 }
@@ -62,15 +58,14 @@ input[type="text"]:focus, input[type="password"]:focus {
     outline: none;
 }
 
-/* Botón de registro */
 button[type="submit"] {
     width: 100%;
-    padding: 0.6rem; /* Reducido de 0.65rem a 0.6rem */
+    padding: 0.6rem; 
     background-color: #0277bd;
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    font-size: 0.9rem; /* Reducido de 0.95rem a 0.9rem */
+    font-size: 0.9rem; 
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -80,43 +75,39 @@ button[type="submit"]:hover {
     background-color: #01579b;
 }
 
-/* Mensaje de éxito */
 .success-message {
     color: #388e3c;
     background-color: #e8f5e9;
-    padding: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
-    margin-bottom: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
+    padding: 0.8rem; 
+    margin-bottom: 0.8rem; 
     border-radius: 5px;
-    font-size: 0.85rem; /* Tamaño reducido */
+    font-size: 0.85rem; 
 }
 
-/* Mensaje de error */
 .error-message {
     color: #d32f2f;
     background-color: #ffebee;
-    padding: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
-    margin-bottom: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
+    padding: 0.8rem; 
+    margin-bottom: 0.8rem; 
     border-radius: 5px;
-    font-size: 0.85rem; /* Tamaño reducido */
+    font-size: 0.85rem; 
 }
 
-/* Alineación de los elementos del formulario */
 form div {
-    margin-bottom: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
+    margin-bottom: 0.8rem; 
 }
 
-/* Botón para volver al login */
 #backToLoginButton {
     width: 100%;
-    padding: 0.6rem; /* Reducido de 0.65rem a 0.6rem */
+    padding: 0.6rem; 
     background-color: #03a9f4;
     border: none;
     border-radius: 5px;
     color: #ffffff;
-    font-size: 0.9rem; /* Reducido de 0.95rem a 0.9rem */
+    font-size: 0.9rem; 
     font-weight: bold;
     cursor: pointer;
-    margin-top: 0.8rem; /* Reducido de 0.9rem a 0.8rem */
+    margin-top: 0.8rem; 
     transition: background-color 0.3s ease;
 }
 
@@ -124,12 +115,10 @@ form div {
     background-color: #0288d1;
 }
 
-/* Contenedor de la imagen */
 .image-container {
-    margin-bottom: 15px; /* Mantiene un margen adecuado */
+    margin-bottom: 15px; 
 }
 
-/* Imagen del login */
 .login-image {
     width: 100%;
     border-radius: 10px;

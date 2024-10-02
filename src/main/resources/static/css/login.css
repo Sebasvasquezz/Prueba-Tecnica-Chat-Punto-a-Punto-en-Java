@@ -1,4 +1,3 @@
-/* Reset de márgenes y padding para asegurar consistencia en todos los navegadores */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Fondo de la página con un azul suave */
 body {
     background-color: #e0f7fa;
     height: 100vh;
@@ -15,7 +13,6 @@ body {
     align-items: center;
 }
 
-/* Contenedor de login */
 .login-container {
     width: 300px;
     margin: 0 auto;
@@ -26,23 +23,20 @@ body {
     text-align: center;
 }
 
-/* Contenedor de la imagen */
 .image-container {
     margin-bottom: 20px;
 }
 
-/* Imagen del login */
 .login-image {
     width: 100%;
     border-radius: 10px;
 }
-/* Título del login */
+
 h2 {
     color: #0277bd;
     margin-bottom: 1.5rem;
 }
 
-/* Estilo de las etiquetas */
 label {
     color: #01579b;
     font-weight: bold;
@@ -51,7 +45,6 @@ label {
     margin-bottom: 0.5rem;
 }
 
-/* Estilo para los inputs */
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 0.75rem;
@@ -69,7 +62,6 @@ input[type="text"]:focus, input[type="password"]:focus {
     outline: none;
 }
 
-/* Botón de login */
 button {
     width: 100%;
     padding: 0.75rem;
@@ -87,12 +79,11 @@ button:hover {
     background-color: #01579b;
 }
 
-/* Mensaje de error */
 #errorMessage {
     color: #d32f2f;
     margin-top: 1rem;
 }
-/* Estilo del botón de registro */
+
 #registerButton {
     width: 100%;
     padding: 0.75rem;

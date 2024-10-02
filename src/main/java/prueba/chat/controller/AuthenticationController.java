@@ -10,6 +10,10 @@ import prueba.chat.model.AuthRequest;
 import prueba.chat.service.CustomUserDetailsService;
 import prueba.chat.util.JwtUtil;
 
+/**
+ * AuthenticationController handles user authentication requests, 
+ * including login and the generation of JWT tokens for authenticated users.
+ */
 @RestController
 @RequestMapping("/authenticate")
 public class AuthenticationController {
@@ -20,10 +24,17 @@ public class AuthenticationController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    // Cambiar la inyección para usar CustomUserDetailsService
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
+    /**
+     * Handles the login request and generates a JWT token for a valid user.
+     * If the authentication is successful, a JWT token is generated using the user's details.
+     * 
+     * @param authRequest The authentication request object containing username and password.
+     * @return A JWT token if authentication is successful.
+     * @throws Exception Thrown if authentication fails due to incorrect credentials.
+     */
     @PostMapping("/login")
     public String createAuthenticationToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {

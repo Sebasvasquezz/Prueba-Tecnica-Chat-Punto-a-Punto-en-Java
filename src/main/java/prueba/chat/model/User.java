@@ -2,6 +2,11 @@ package prueba.chat.model;
 
 import jakarta.persistence.*;
 
+/**
+ * User represents a user entity in the system. It stores information
+ * such as the user's ID, username, and password. This class is mapped
+ * to the "users" table in the database.
+ */
 @Entity
 @Table(name = "users")
 public class User {

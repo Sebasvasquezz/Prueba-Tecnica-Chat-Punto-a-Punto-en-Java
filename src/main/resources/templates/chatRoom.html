@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Room</title>
-    <link rel="stylesheet" href="/css/chatRoom.css"> <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="/css/chatRoom.css">
     <script src="https://cdn.jsdelivr.net/sockjs/latest/sockjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script> 
@@ -13,8 +13,6 @@
     <div id="chat">
         <h2>Chat with <span th:text="${recipient}"></span></h2>
         <div id="messageArea"></div>
-
-        <!-- Contenedor de input y botón de enviar mensaje -->
         <div id="messageInputContainer">
             <input type="text" id="message" placeholder="Write a message...">
             <button onclick="sendMessage()">Send</button>

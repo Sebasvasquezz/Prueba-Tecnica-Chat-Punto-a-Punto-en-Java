@@ -6,6 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
+/**
+ * Message represents a message entity that is stored in the database.
+ * It contains the sender, recipient, message content, and timestamp.
+ */
 @Entity
 public class Message {
 
@@ -21,6 +25,14 @@ public class Message {
     public Message() {
     }
 
+     /**
+     * Constructor to initialize a message with the sender, recipient, content, and timestamp.
+     * 
+     * @param sender The username of the sender.
+     * @param recipient The username of the recipient.
+     * @param content The content of the message.
+     * @param timestamp The time the message was sent.
+     */
     public Message(String sender, String recipient, String content, LocalDateTime timestamp) {
         this.sender = sender;
         this.recipient = recipient;
