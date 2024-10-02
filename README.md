@@ -75,9 +75,13 @@ You need to install the following tools and configure their dependencies:
     java -jar target/chat-0.0.1-SNAPSHOT.jar
     ```
 
-    The application will start, and you can access the web interface at `https://localhost:8443/login`.
+    The application will start, and you can access the web interface at `https://localhost:8443/`.
+    
+    ![Execution in local](images/execution.png)
 
-    ![Execution in local](images/execution.gif)
+    **For more details check the video:
+    execution.mp4 in the images folder:
+    Prueba-Tecnica-Chat-Punto-a-Punto-en-Java\images\execution.mp4**
 
 ## Project Structure
 
