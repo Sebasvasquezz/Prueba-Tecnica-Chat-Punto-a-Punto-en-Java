@@ -199,7 +199,7 @@ This project is a **real-time chat application** built using **Spring Boot** and
 
 ## Class Diagram
 
-![Class Diagram](images/ClassDiagram.png)
+![Class Diagram](images/classDiagram.png)
 
 The class diagram represents the key components of the chat application and their interactions:
 
