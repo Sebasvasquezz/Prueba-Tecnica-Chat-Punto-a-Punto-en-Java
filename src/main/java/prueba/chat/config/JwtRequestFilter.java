@@ -54,7 +54,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             for (Cookie cookie : cookies) {
                 if ("jwtToken".equals(cookie.getName())) {
                     jwt = cookie.getValue();
-                    System.out.println("JWT token found in cookies: " + jwt);
                     break;
                 }
             }
@@ -64,36 +63,27 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             final String authorizationHeader = request.getHeader("Authorization");
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 jwt = authorizationHeader.substring(7);
-                System.out.println("Authorization header found: " + jwt);
-            } else {
-                System.out.println("No Authorization header found or it doesn't start with 'Bearer '");
-            }
+            } 
         }
 
         if (jwt != null) {
             try {
                 username = jwtUtil.extractUsername(jwt);
-                System.out.println("Username extracted from JWT: " + username);
             } catch (ExpiredJwtException e) {
                 System.out.println("JWT Token has expired");
             }
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            System.out.println("Username is not null and the user is not authenticated yet");
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-            System.out.println("UserDetails loaded: " + userDetails.getUsername());
 
             if (jwtUtil.validateToken(jwt, userDetails.getUsername())) {
-                System.out.println("JWT Token is valid");
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-                System.out.println("User authenticated: " + username);
-            } else {
-                System.out.println("JWT Token is not valid");
             }
+    
         }
 
         chain.doFilter(request, response);

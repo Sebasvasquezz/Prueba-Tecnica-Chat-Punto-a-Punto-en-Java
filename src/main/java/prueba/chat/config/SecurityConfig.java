@@ -52,12 +52,7 @@ public class SecurityConfig {
                 .requestMatchers("/users/register", "/login", "/js/jwt-interceptor.js","/register","/authenticate/login", "/static/**", "/css/**", "/js/**","/images/**").permitAll() 
                 .requestMatchers("/users/all", "/chat/**", "/chat-websocket/**").authenticated()  
             )
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) 
-            .and()
-            .exceptionHandling()
-                .authenticationEntryPoint((request, response, authException) -> {
-                    response.sendRedirect("/login");
-                })
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class); 
 
